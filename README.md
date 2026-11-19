@@ -20,7 +20,8 @@ alive while you work.
 ## What you get
 
 - **A permanent identity per project.** The first time Claude runs in a project, Halo gives it one of
-  18 identities and keeps it: same project, same colours, every session.
+  18 identities and keeps it: same project, same colours, every session. Sessions started in your home
+  folder light up too, in `tokyo`.
 - **An animated outline and glow** around the window, in one of five motion styles: `flow`, `dual`,
   `comet`, `twin`, `breathe`. Only the focused window animates; the others dim and hold still.
 - **An aurora behind the glass**, drifting through Ghostty's translucent background.

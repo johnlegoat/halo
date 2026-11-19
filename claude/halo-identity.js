@@ -2,7 +2,7 @@
 //
 // Called by statusline.js on every render. It:
 //   1. resolves the project the session is working in (git root, else nearest
-//      project marker, else the folder itself; the home folder has no project),
+//      project marker, else the folder itself; the home folder is a project of its own),
 //   2. gives each project a permanent identity from ~/.config/halo/identities.json
 //      (hash-preferred slot, first free one on collision, saved forever),
 //   3. records which terminal the session lives in under ~/.cache/halo/sessions/
@@ -41,7 +41,7 @@ const DEFAULT_CONFIG = {
     sakura:    { colors: ['#ffb7c5', '#ff4d8d', '#ff8fab', '#c9184a', '#ffd6e0'], style: 'breathe', bg: '#1a0710' },
     venom:     { colors: ['#39ff14', '#00ff9c', '#a3ff12', '#00ffd0'], style: 'twin', bg: '#031208' },
   },
-  projects: {},
+  projects: { [HOME]: 'tokyo' }, // sessions in your home folder
 };
 
 const MARKERS = ['package.json', 'pyproject.toml', 'Cargo.toml', 'go.mod', 'Package.swift', 'CLAUDE.md', 'Gemfile', 'deno.json'];
@@ -49,7 +49,8 @@ const MARKERS = ['package.json', 'pyproject.toml', 'Cargo.toml', 'go.mod', 'Pack
 function projectRoot(dir) {
   if (!dir) return null;
   const abs = path.resolve(dir);
-  if (!abs.startsWith(HOME + path.sep)) return null; // home itself or outside it: no project
+  if (abs === HOME) return HOME;                       // the home folder: its own identity
+  if (!abs.startsWith(HOME + path.sep)) return null; // outside home: no project
   const chain = []; // abs ... up to the folder right under home
   for (let cur = abs; cur !== HOME; cur = path.dirname(cur)) chain.push(cur);
   // 1. the git repo you're in; 2. the OUTERMOST folder with a project marker (so
