@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- Halo app icon. Render: scripts/icon.sh (headless Chrome -> 1024px PNG -> .icns) -->
+<html><head><meta charset="utf-8"><style>
+  html, body { margin: 0; width: 1024px; height: 1024px; background: transparent; }
+  .tile {
+    position: absolute; left: 100px; top: 100px; width: 824px; height: 824px; border-radius: 186px; overflow: hidden;
+    background: radial-gradient(120% 95% at 50% 0%, #1b1546 0%, #0b0820 52%, #04030b 100%);
+    box-shadow: inset 0 2px 0 rgba(255,255,255,.10), inset 0 -2px 0 rgba(0,0,0,.5);
+  }
+  .aurora {
+    position: absolute; inset: 0; filter: blur(18px);
+    background:
+      radial-gradient(38% 30% at 28% 70%, rgba(108,92,255,.42), transparent 70%),
+      radial-gradient(34% 28% at 74% 34%, rgba(255,59,212,.32), transparent 70%),
+      radial-gradient(30% 26% at 60% 80%, rgba(34,211,255,.26), transparent 70%);
+  }
+  .glow, .ring { position: absolute; left: 152px; top: 232px; width: 520px; height: 360px; border-radius: 70px; }
+  .spectrum { background: conic-gradient(from 200deg, #ff3b5c, #ff9f1a, #ffe600, #2bff88, #22d3ff, #6c5cff, #ff3bd4, #ff3b5c); }
+  .glow { filter: blur(46px); opacity: .9; transform: scale(1.04); }
+  .ring {
+    box-sizing: border-box; padding: 16px;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+  .term {
+    position: absolute; left: 168px; top: 248px; width: 488px; height: 328px; border-radius: 55px;
+    background: linear-gradient(160deg, rgba(20,14,48,.92), rgba(8,6,22,.94));
+  }
+  .dots { position: absolute; left: 44px; top: 40px; display: flex; gap: 16px; }
+  .dots i { width: 22px; height: 22px; border-radius: 50%; background: rgba(240,240,255,.16); }
+  .prompt {
+    position: absolute; left: 60px; top: 132px; display: flex; align-items: flex-end; gap: 28px;
+    font: 800 128px/1 "JetBrainsMono Nerd Font", "SF Mono", Menlo, monospace; color: #f0f0ff;
+    text-shadow: 0 0 24px rgba(255,255,255,.35);
+  }
+  .cursor { width: 92px; height: 20px; margin-bottom: 8px; border-radius: 6px; background: #fff;
+    box-shadow: 0 0 22px #fff, 0 0 48px rgba(108,92,255,.9); }
+  .spark { position: absolute; left: 132px; top: 212px; width: 90px; height: 90px; border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, rgba(255,255,255,.85) 18%, rgba(255,240,250,.25) 45%, transparent 70%); }
+</style></head><body>
+  <div class="tile">
+    <div class="aurora"></div>
+    <div class="glow spectrum"></div>
+    <div class="ring spectrum"></div>
+    <div class="term">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <div class="prompt"><span>❯</span><div class="cursor"></div></div>
+    </div>
+    <div class="spark"></div>
+  </div>
+</body></html>

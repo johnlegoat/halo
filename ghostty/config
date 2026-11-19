@@ -1,0 +1,45 @@
+# Halo's Ghostty look: midnight blue with neon accents.
+# install.sh copies this only when you have no Ghostty config yet, then adds the Halo block below it.
+
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+font-thicken = true
+
+background = 060616
+foreground = f0f0ff
+cursor-color = 4d6bff
+selection-background = 23265a
+selection-foreground = f0f0ff
+
+palette = 0=#060616
+palette = 1=#ff2244
+palette = 2=#00ff9d
+palette = 3=#ffe600
+palette = 4=#2e4bff
+palette = 5=#3b5bff
+palette = 6=#3f8cff
+palette = 7=#f0f0ff
+palette = 8=#23265a
+palette = 9=#ff3344
+palette = 10=#00ff9d
+palette = 11=#ffe600
+palette = 12=#5b8cff
+palette = 13=#6ea8ff
+palette = 14=#6ea8ff
+palette = 15=#ffffff
+
+window-padding-x = 16
+window-padding-y = 16
+window-theme = dark
+macos-window-shadow = true
+
+cursor-style = underline
+cursor-style-blink = true
+mouse-hide-while-typing = true
+# keep the underline cursor at the shell prompt too
+shell-integration-features = no-cursor
+
+adjust-cell-height = 4%
+bold-is-bright = true
+minimum-contrast = 1.1
+scrollback-limit = 100000
